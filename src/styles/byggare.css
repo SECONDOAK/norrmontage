@@ -1,0 +1,732 @@
+/* ==========================================================================
+   Stationsbyggaren
+   ========================================================================== */
+
+.byggare-hero {
+  background: var(--steel-900);
+  color: var(--text-inverse);
+  padding-block: var(--space-2xl) var(--space-xl);
+}
+
+.byggare-hero h1 {
+  font-size: var(--step-4);
+  margin-block: var(--space-s);
+}
+
+.byggare-hero .lead {
+  color: var(--text-inverse-muted);
+  max-width: 42rem;
+}
+
+.byggare {
+  padding-block: var(--space-xl) var(--section-y);
+  background: var(--surface-alt);
+}
+
+.byggare__grid {
+  display: grid;
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+@media (min-width: 64rem) {
+  .byggare__grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+    gap: var(--space-2xl);
+  }
+
+  /* Visningen följer med när man går igenom stegen. */
+  .byggare__vy {
+    position: sticky;
+    top: 5.5rem;
+  }
+}
+
+/* På mobil är stationen poängen — den ska ligga överst och följa med när man
+   bläddrar genom stegen. Specifikationen hamnar under stegen istället. */
+@media (max-width: 63.999rem) {
+  .byggare__vy {
+    display: contents;
+  }
+
+  .vy {
+    order: -1;
+    position: sticky;
+    top: 4.25rem;
+    z-index: 5;
+    box-shadow: var(--shadow-l);
+  }
+
+  .vy__scen svg {
+    max-height: 34svh;
+  }
+
+  .spec {
+    order: 1;
+  }
+}
+
+/* --- Steg --------------------------------------------------------------------- */
+
+.steg {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: var(--space-m);
+  counter-reset: steg;
+}
+
+.steg__block {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-l);
+  padding: var(--space-m);
+}
+
+.steg__rubrik {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: var(--step-1);
+  margin-block-end: var(--space-s);
+}
+
+.steg__nr {
+  display: grid;
+  place-items: center;
+  width: 1.85rem;
+  height: 1.85rem;
+  flex: none;
+  border-radius: 50%;
+  background: var(--steel-900);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+}
+
+.delrubrik {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-block: var(--space-m) var(--space-2xs);
+}
+
+.delrubrik:first-child {
+  margin-block-start: 0;
+}
+
+/* --- Kortval ------------------------------------------------------------------ */
+
+.valgrid {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.6rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 11rem), 1fr));
+}
+
+.val {
+  position: relative;
+  display: grid;
+  gap: 0.15rem;
+  padding: 0.75rem 0.85rem;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-m);
+  cursor: pointer;
+  background: var(--surface);
+  transition:
+    border-color var(--dur) var(--ease),
+    background var(--dur) var(--ease);
+}
+
+.val:hover {
+  border-color: var(--border-strong);
+  background: var(--surface-alt);
+}
+
+.val input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.val:has(input:focus-visible) {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.val--vald {
+  border-color: var(--nab-blue);
+  background: var(--nab-blue-050);
+}
+
+.val__namn {
+  font-weight: 600;
+  font-size: var(--step--1);
+  line-height: 1.3;
+}
+
+.val__badge {
+  font-size: 0.66rem;
+  letter-spacing: 0.04em;
+  color: var(--nab-blue-700);
+}
+
+.val__text {
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: var(--text-muted);
+}
+
+/* --- Storlek ------------------------------------------------------------------ */
+
+.storlek {
+  display: grid;
+  gap: var(--space-m);
+}
+
+.reglage label {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-s);
+  font-size: var(--step--1);
+  font-weight: 600;
+  margin-block-end: 0.4rem;
+}
+
+.reglage output {
+  font-size: var(--step-1);
+  font-weight: 500;
+  color: var(--nab-blue-700);
+}
+
+.reglage input[type='range'] {
+  width: 100%;
+  accent-color: var(--nab-blue);
+  cursor: pointer;
+}
+
+.reglage__spann {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  margin-block-start: 0.2rem;
+}
+
+.stepper {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+  flex-wrap: wrap;
+}
+
+.stepper__etikett {
+  font-size: var(--step--1);
+  font-weight: 600;
+  flex: 1;
+  min-width: 9rem;
+}
+
+.stepper__kontroll {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-m);
+  overflow: hidden;
+}
+
+.stepper__kontroll button {
+  width: 2.4rem;
+  height: 2.4rem;
+  border: 0;
+  background: var(--surface);
+  font-size: 1.15rem;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--text);
+  transition: background var(--dur) var(--ease);
+}
+
+.stepper__kontroll button:hover:not(:disabled) {
+  background: var(--surface-sunken);
+}
+
+.stepper__kontroll button:disabled {
+  color: var(--border-strong);
+  cursor: not-allowed;
+}
+
+.stepper__kontroll output {
+  min-width: 2.2rem;
+  text-align: center;
+  font-size: var(--step-0);
+  font-variant-numeric: tabular-nums;
+}
+
+.stepper__spann {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+/* --- Regelnotiser -------------------------------------------------------------- */
+
+.regelnot {
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+  padding: 0.7rem 0.9rem;
+  background: var(--surface-alt);
+  border-inline-start: 3px solid var(--border-strong);
+  border-radius: 0 var(--radius-s) var(--radius-s) 0;
+}
+
+.regelnot--aktiv {
+  background: var(--nab-blue-050);
+  border-inline-start-color: var(--nab-blue);
+  color: var(--text);
+}
+
+/* --- Kulörer -------------------------------------------------------------------- */
+
+.kulorgrid {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.6rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 9rem), 1fr));
+}
+
+.kulor {
+  position: relative;
+  display: grid;
+  grid-template-columns: 2.1rem 1fr;
+  grid-template-rows: auto auto;
+  gap: 0.1rem 0.7rem;
+  align-items: center;
+  padding: 0.6rem 0.7rem;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-m);
+  cursor: pointer;
+  transition: border-color var(--dur) var(--ease);
+}
+
+.kulor:hover {
+  border-color: var(--border-strong);
+}
+
+.kulor--vald {
+  border-color: var(--nab-blue);
+  background: var(--nab-blue-050);
+}
+
+.kulor input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.kulor:has(input:focus-visible) {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.kulor__prov {
+  grid-row: 1 / 3;
+  width: 2.1rem;
+  height: 2.1rem;
+  border-radius: var(--radius-s);
+  background: var(--prov);
+  border: 1px solid rgb(0 0 0 / 0.25);
+  box-shadow: inset 0 -6px 10px rgb(0 0 0 / 0.18);
+}
+
+.kulor__namn {
+  font-size: var(--step--1);
+  font-weight: 600;
+}
+
+.kulor__ncs {
+  font-size: 0.64rem;
+  color: var(--text-muted);
+}
+
+.switch {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-block: var(--space-m) 0;
+  font-size: var(--step--1);
+  cursor: pointer;
+}
+
+.switch input {
+  width: 1.1rem;
+  height: 1.1rem;
+  accent-color: var(--nab-blue);
+  cursor: pointer;
+}
+
+/* Noten sitter direkt under färgproverna och behöver luft. Scopad hit — i
+   .storlek sköter rutnätets gap avståndet redan. */
+.kulorblock .regelnot {
+  margin-block-start: var(--space-s);
+}
+
+.kulorblock__extra {
+  margin-block-start: var(--space-s);
+  padding-inline-start: var(--space-s);
+  border-inline-start: 2px solid var(--nab-blue-050);
+}
+
+/* --- Tillval --------------------------------------------------------------------- */
+
+.tillvalgrid {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.6rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
+}
+
+.tillval {
+  position: relative;
+  display: grid;
+  gap: 0.15rem;
+  padding: 0.75rem 0.85rem 0.75rem 2.4rem;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-m);
+  cursor: pointer;
+  transition: border-color var(--dur) var(--ease);
+}
+
+.tillval:hover {
+  border-color: var(--border-strong);
+}
+
+.tillval input {
+  position: absolute;
+  left: 0.85rem;
+  top: 0.95rem;
+  width: 1.05rem;
+  height: 1.05rem;
+  accent-color: var(--nab-blue);
+  cursor: pointer;
+}
+
+.tillval--pa {
+  border-color: var(--nab-blue);
+  background: var(--nab-blue-050);
+}
+
+.tillval--last {
+  cursor: default;
+  opacity: 0.9;
+}
+
+.tillval--last input {
+  cursor: not-allowed;
+}
+
+.tillval__namn {
+  font-weight: 600;
+  font-size: var(--step--1);
+}
+
+.tillval__namn em {
+  font-style: normal;
+  font-weight: 500;
+  color: var(--nab-blue-700);
+}
+
+.tillval__text {
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: var(--text-muted);
+}
+
+/* --- Visning --------------------------------------------------------------------- */
+
+.vy {
+  background: linear-gradient(180deg, #dfe8ee, #c9d6de);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-l);
+  padding: var(--space-s);
+  box-shadow: var(--shadow-m);
+  overflow: hidden;
+}
+
+.vy__scen {
+  color: #64798a;
+}
+
+.vy__scen svg {
+  width: 100%;
+  height: auto;
+}
+
+/* --- Specifikation ---------------------------------------------------------------- */
+
+.spec {
+  margin-block-start: var(--space-m);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-l);
+  padding: var(--space-m);
+}
+
+.spec__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-2xs) var(--space-s);
+  padding-block-end: var(--space-s);
+  border-bottom: 2px solid var(--steel-900);
+}
+
+.spec__head h2 {
+  font-size: var(--step-1);
+}
+
+.spec__narmast {
+  font-size: 0.76rem;
+  color: var(--nab-blue-700);
+  background: var(--nab-blue-050);
+  padding: 0.25rem 0.55rem;
+  border-radius: var(--radius-pill);
+}
+
+.spec__lista {
+  margin: 0;
+  display: grid;
+}
+
+.spec__lista > div {
+  display: grid;
+  grid-template-columns: 10rem 1fr;
+  gap: var(--space-s);
+  padding-block: 0.6rem;
+  border-bottom: 1px solid var(--border);
+  font-size: var(--step--1);
+}
+
+.spec__lista dt {
+  color: var(--text-muted);
+}
+
+.spec__lista dd {
+  margin: 0;
+  font-weight: 550;
+}
+
+.spec__not {
+  margin-block-start: var(--space-s);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+@media (max-width: 30rem) {
+  .spec__lista > div {
+    grid-template-columns: 1fr;
+    gap: 0.1rem;
+  }
+}
+
+.spec__vidare {
+  margin-block-start: var(--space-s);
+  width: 100%;
+}
+
+/* --- Säljarformulär (mockat) ------------------------------------------------------ */
+
+/* Rubriken ligger över hela raden; specifikationen och formuläret står sedan
+   sida vid sida med överkanterna i linje. */
+.saljare__head {
+  margin-block-end: var(--space-xl);
+}
+
+.saljare__grid {
+  display: grid;
+  gap: var(--space-m);
+  align-items: start;
+}
+
+@media (min-width: 60rem) {
+  .saljare__grid {
+    grid-template-columns: 1fr 1.1fr;
+    gap: var(--space-xl);
+  }
+}
+
+.saljare__spec {
+  border: 1px solid rgb(255 255 255 / 0.16);
+  border-radius: var(--radius-l);
+  padding: var(--space-m);
+  background: rgb(255 255 255 / 0.04);
+}
+
+.saljare__spec-rubrik {
+  font-size: 0.76rem;
+  color: var(--nab-blue-300);
+  margin-block-end: var(--space-2xs);
+}
+
+.saljare__spec-lista {
+  margin: 0;
+  display: grid;
+}
+
+.saljare__spec-lista > div {
+  display: grid;
+  grid-template-columns: 9.5rem 1fr;
+  gap: var(--space-s);
+  padding-block: 0.45rem;
+  border-bottom: 1px solid rgb(255 255 255 / 0.1);
+  font-size: 0.85rem;
+}
+
+.saljare__spec-lista > div:last-child {
+  border-bottom: 0;
+}
+
+.saljare__spec-lista dt {
+  color: var(--text-inverse-muted);
+}
+
+@media (max-width: 30rem) {
+  .saljare__spec-lista > div {
+    grid-template-columns: 1fr;
+    gap: 0.1rem;
+  }
+}
+
+.saljare__spec-lista dd {
+  margin: 0;
+  color: #fff;
+  font-weight: 500;
+}
+
+/* display: grid på korten vinner annars över hidden-attributet. */
+.saljar-form[hidden],
+.saljar-kvitto[hidden] {
+  display: none;
+}
+
+.saljar-form {
+  background: var(--surface);
+  border-radius: var(--radius-l);
+  padding: var(--space-l);
+  color: var(--text);
+  box-shadow: var(--shadow-l);
+  display: grid;
+  gap: var(--space-m);
+}
+
+.falt-rad {
+  display: grid;
+  gap: var(--space-m);
+}
+
+@media (min-width: 40rem) {
+  .falt-rad {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.falt {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.falt label {
+  font-size: var(--step--1);
+  font-weight: 600;
+}
+
+.falt input,
+.falt textarea {
+  padding: 0.75rem 0.9rem;
+  border: 1.5px solid var(--border-strong);
+  border-radius: var(--radius-m);
+  background: var(--surface);
+  font-size: var(--step--1);
+  transition: border-color var(--dur) var(--ease);
+}
+
+.falt input:hover,
+.falt textarea:hover {
+  border-color: var(--slate-400);
+}
+
+.falt input:focus-visible,
+.falt textarea:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 1px;
+  border-color: var(--nab-blue-btn);
+}
+
+.falt textarea {
+  resize: vertical;
+  min-height: 6rem;
+}
+
+.falt-fel {
+  font-size: var(--step--1);
+  font-weight: 550;
+  color: #b02b1a;
+  padding: 0.6rem 0.9rem;
+  background: #ffe9e6;
+  border-radius: var(--radius-m);
+}
+
+.saljar-kvitto {
+  background: var(--surface);
+  border-radius: var(--radius-l);
+  padding: var(--space-xl) var(--space-l);
+  color: var(--text);
+  box-shadow: var(--shadow-l);
+  text-align: center;
+  display: grid;
+  gap: var(--space-s);
+  justify-items: center;
+}
+
+.saljar-kvitto__ikon {
+  width: 3.2rem;
+  height: 3.2rem;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #e4f5ea;
+  color: #1d7a43;
+}
+
+.saljar-kvitto__ikon svg {
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+.saljar-kvitto h3 {
+  font-size: var(--step-2);
+  /* Kortet är ljust fast sektionen är mörk — övertrumfa .section--dark h3. */
+  color: var(--text);
+}
+
+.saljar-kvitto p {
+  color: var(--text-muted);
+  max-width: 26rem;
+}
+
+.saljar-kvitto__not {
+  font-size: 0.78rem;
+}

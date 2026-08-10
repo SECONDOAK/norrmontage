@@ -1,0 +1,161 @@
+/* ==========================================================================
+   Kontaktsida
+   ========================================================================== */
+
+.kontakt-topp {
+  display: grid;
+  gap: var(--space-m);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 52rem) {
+  .kontakt-topp {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.kontakt-kort {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-l);
+  padding: var(--space-m);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-s);
+}
+
+.kontakt-kort h2 {
+  font-size: 0.78rem;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.kontakt-kort__stor {
+  font-family: var(--font-display);
+  font-size: var(--step-3);
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.kontakt-kort__stor a {
+  text-decoration: none;
+}
+
+.kontakt-kort__stor a:hover {
+  color: var(--nab-blue-700);
+}
+
+.kontakt-kort__adress {
+  font-size: var(--step-1);
+  line-height: 1.5;
+}
+
+.kontakt-kort .note {
+  margin-block-start: auto;
+}
+
+.oppet,
+.epostlista {
+  margin: 0;
+  display: grid;
+}
+
+.oppet > div,
+.epostlista > div {
+  display: grid;
+  grid-template-columns: 9rem 1fr;
+  gap: var(--space-s);
+  padding-block: 0.5rem;
+  border-bottom: 1px solid var(--border);
+  font-size: var(--step--1);
+}
+
+.oppet dt,
+.epostlista dt {
+  color: var(--text-muted);
+}
+
+.oppet dd,
+.epostlista dd {
+  margin: 0;
+}
+
+.epostlista a {
+  text-decoration: none;
+  font-weight: 550;
+  color: var(--nab-blue-700);
+}
+
+.epostlista a:hover {
+  text-decoration: underline;
+}
+
+/* --- Team --------------------------------------------------------------------- */
+
+.avdelning + .avdelning {
+  margin-block-start: var(--space-xl);
+}
+
+.avdelning__namn {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding-block-end: var(--space-2xs);
+  border-bottom: 2px solid var(--steel-900);
+  margin-block-end: var(--space-m);
+}
+
+.personer {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: var(--space-m);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+}
+
+.person {
+  display: grid;
+  grid-template-columns: 3.2rem 1fr;
+  gap: var(--space-s);
+  align-items: center;
+}
+
+.person__portratt {
+  width: 3.2rem;
+  height: 3.2rem;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--steel-900);
+  color: #fff;
+  font-size: 0.92rem;
+  letter-spacing: 0.02em;
+}
+
+.person__text {
+  display: grid;
+  gap: 0.1rem;
+}
+
+.person__roll {
+  font-size: var(--step--1);
+  color: var(--text-muted);
+}
+
+.person__tel {
+  font-size: var(--step--1);
+  color: var(--nab-blue-700);
+  text-decoration: none;
+}
+
+.person__tel:hover {
+  text-decoration: underline;
+}

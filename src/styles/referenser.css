@@ -1,0 +1,97 @@
+/* ==========================================================================
+   Referensgalleri
+   ========================================================================== */
+
+.galleri {
+  display: grid;
+  gap: var(--space-m);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 44rem) {
+  .galleri {
+    grid-template-columns: repeat(6, 1fr);
+  }
+  .ref {
+    grid-column: span 3;
+  }
+  .ref--stor {
+    grid-column: span 6;
+  }
+}
+
+@media (min-width: 68rem) {
+  .ref {
+    grid-column: span 2;
+  }
+  .ref--stor {
+    grid-column: span 4;
+  }
+}
+
+.ref {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-l);
+  overflow: hidden;
+  transition:
+    box-shadow var(--dur) var(--ease),
+    translate var(--dur) var(--ease);
+}
+
+.ref:hover {
+  box-shadow: var(--shadow-m);
+  translate: 0 -3px;
+}
+
+.ref img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background: var(--surface-sunken);
+}
+
+.ref--stor img {
+  aspect-ratio: 16 / 9;
+}
+
+.ref figcaption {
+  padding: var(--space-m);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+  flex: 1;
+}
+
+.ref h2 {
+  font-size: var(--step-1);
+}
+
+.ref p {
+  font-size: var(--step--1);
+  color: var(--text-muted);
+}
+
+.ref__taggar {
+  list-style: none;
+  padding: 0;
+  margin: auto 0 0;
+  padding-block-start: var(--space-s);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.ref__taggar li {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.03em;
+  padding: 0.2rem 0.5rem;
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-s);
+  color: var(--text-muted);
+}

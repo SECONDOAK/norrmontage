@@ -1,0 +1,620 @@
+/* ==========================================================================
+   Norrmontage – komponenter
+   ========================================================================== */
+
+/* --- Sidhuvud -------------------------------------------------------------- */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgb(255 255 255 / 0.88);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-m);
+  min-height: 4.5rem;
+}
+
+.site-header__logo {
+  flex: none;
+  display: block;
+  text-decoration: none;
+}
+
+.site-header__logo img {
+  width: 7.5rem;
+}
+
+.site-nav {
+  margin-inline-start: auto;
+  display: none;
+}
+
+.site-nav ul {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.5rem, 1.4vw, 1.35rem);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.site-nav a {
+  display: block;
+  padding: 0.5rem 0.25rem;
+  font-size: var(--step--1);
+  font-weight: 550;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  color: var(--text);
+  position: relative;
+  white-space: nowrap;
+}
+
+.site-nav a::after {
+  content: '';
+  position: absolute;
+  inset-inline: 0.25rem;
+  bottom: 0.15rem;
+  height: 2px;
+  background: var(--nab-blue);
+  scale: 0 1;
+  transform-origin: left;
+  transition: scale var(--dur) var(--ease);
+}
+
+.site-nav a:hover::after,
+.site-nav a[aria-current='page']::after {
+  scale: 1 1;
+}
+
+.site-nav a[aria-current='page'] {
+  color: var(--nab-blue-700);
+}
+
+.site-header__actions {
+  margin-inline-start: auto;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2xs);
+}
+
+/* Bara när navigationen faktiskt visas — annars äter regeln upp auto-marginalen
+   som håller hamburgaren i högerkant. */
+@media (min-width: 64rem) {
+  .site-nav + .site-header__actions {
+    margin-inline-start: var(--space-s);
+  }
+}
+
+.nav-toggle {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-m);
+  cursor: pointer;
+}
+
+.nav-toggle svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.nav-toggle__close {
+  display: none;
+}
+
+.nav-toggle[aria-expanded='true'] .nav-toggle__open {
+  display: none;
+}
+
+.nav-toggle[aria-expanded='true'] .nav-toggle__close {
+  display: block;
+}
+
+/* På smal skärm får logotyp + portalknapp + hamburgare inte plats inom
+   containern. Portalknappen finns redan i mobilmenyn, så den räcker där. */
+.site-header__actions .btn {
+  display: none;
+}
+
+@media (min-width: 64rem) {
+  .site-nav {
+    display: block;
+  }
+  .nav-toggle {
+    display: none;
+  }
+  .site-header__actions .btn {
+    display: inline-flex;
+  }
+}
+
+/* Mobilmeny */
+.mobile-nav {
+  display: none;
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+  padding-block: var(--space-s) var(--space-m);
+}
+
+.mobile-nav[data-open='true'] {
+  display: block;
+}
+
+.mobile-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mobile-nav a {
+  display: block;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--border);
+  text-decoration: none;
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  font-weight: 600;
+}
+
+/* Knappen är också en <a> och träffas därför av .mobile-nav a ovan, som har
+   högre specificitet än .btn. Återställ knappens egen form och typografi. */
+.mobile-nav .btn {
+  display: flex;
+  width: 100%;
+  margin-block-start: var(--space-m);
+  padding: 0.9rem 1.4rem;
+  border-bottom: 0;
+  font-family: var(--font-body);
+  font-size: var(--step--1);
+  font-weight: 600;
+}
+
+@media (min-width: 64rem) {
+  .mobile-nav {
+    display: none !important;
+  }
+}
+
+/* --- Knappar --------------------------------------------------------------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 0.8rem 1.4rem;
+  font-family: var(--font-body);
+  font-size: var(--step--1);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  border: 1px solid transparent;
+  border-radius: var(--radius-m);
+  cursor: pointer;
+  transition:
+    background var(--dur) var(--ease),
+    color var(--dur) var(--ease),
+    border-color var(--dur) var(--ease),
+    translate var(--dur) var(--ease);
+  white-space: nowrap;
+}
+
+.btn:hover {
+  translate: 0 -1px;
+}
+
+.btn svg {
+  width: 1.05em;
+  height: 1.05em;
+  flex: none;
+}
+
+.btn--primary {
+  background: var(--nab-blue-btn);
+  color: #fff;
+}
+
+.btn--primary:hover {
+  background: var(--nab-blue-700);
+}
+
+.btn--dark {
+  background: var(--steel-900);
+  color: #fff;
+}
+
+.btn--dark:hover {
+  background: var(--steel-700);
+}
+
+.btn--ghost {
+  border-color: var(--border-strong);
+  color: var(--text);
+  background: transparent;
+}
+
+.btn--ghost:hover {
+  border-color: var(--steel-900);
+  background: var(--surface-alt);
+}
+
+.btn--on-dark {
+  border-color: rgb(255 255 255 / 0.3);
+  color: #fff;
+  background: rgb(255 255 255 / 0.06);
+}
+
+.btn--on-dark:hover {
+  background: rgb(255 255 255 / 0.14);
+  border-color: rgb(255 255 255 / 0.55);
+}
+
+.btn--sm {
+  padding: 0.55rem 0.95rem;
+  font-size: 0.82rem;
+}
+
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+}
+
+/* --- Typografiska hjälpare -------------------------------------------------- */
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--nab-blue-700);
+}
+
+.eyebrow::before {
+  content: '';
+  width: 1.6rem;
+  height: 2px;
+  background: var(--nab-blue);
+}
+
+.section--dark .eyebrow {
+  color: var(--nab-blue-300);
+}
+
+.lead {
+  font-size: var(--step-1);
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+
+.section--dark .lead {
+  color: var(--text-inverse-muted);
+}
+
+.section-head {
+  max-width: 44rem;
+  margin-block-end: var(--space-xl);
+}
+
+.section-head > * + * {
+  margin-block-start: var(--space-s);
+}
+
+.mono {
+  font-family: var(--font-mono);
+  font-size: 0.88em;
+  letter-spacing: -0.01em;
+}
+
+/* --- Rutnät ---------------------------------------------------------------- */
+
+.grid {
+  display: grid;
+  gap: var(--space-m);
+}
+
+.grid--2 {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 48rem) {
+  .grid--2 {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: var(--space-xl);
+  }
+}
+
+.grid--3 {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+}
+
+.grid--4 {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
+}
+
+/* --- Kort ------------------------------------------------------------------ */
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-l);
+  overflow: hidden;
+  transition:
+    border-color var(--dur) var(--ease),
+    box-shadow var(--dur) var(--ease),
+    translate var(--dur) var(--ease);
+}
+
+.card:hover {
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-m);
+  translate: 0 -3px;
+}
+
+.card__media {
+  aspect-ratio: 4 / 3;
+  background: var(--surface-sunken);
+  overflow: hidden;
+}
+
+.card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: scale 400ms var(--ease);
+}
+
+.card:hover .card__media img {
+  scale: 1.04;
+}
+
+.card__body {
+  padding: var(--space-m);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+  flex: 1;
+}
+
+.card__meta {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--nab-blue-700);
+}
+
+.card__title {
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  font-weight: 650;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+}
+
+.card__title a {
+  text-decoration: none;
+}
+
+.card__title a::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+}
+
+.card__text {
+  font-size: var(--step--1);
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.card__foot {
+  margin-block-start: auto;
+  padding-block-start: var(--space-s);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: var(--step--1);
+  font-weight: 600;
+  color: var(--nab-blue-700);
+}
+
+.card__foot svg {
+  width: 1rem;
+  height: 1rem;
+  transition: translate var(--dur) var(--ease);
+}
+
+.card:hover .card__foot svg {
+  translate: 3px 0;
+}
+
+.card--link {
+  position: relative;
+}
+
+/* --- Fakta / bevisrad ------------------------------------------------------ */
+
+.factbar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-l);
+  overflow: hidden;
+}
+
+.fact {
+  background: var(--surface);
+  padding: var(--space-m);
+}
+
+.section--dark .factbar {
+  background: rgb(255 255 255 / 0.14);
+  border-color: rgb(255 255 255 / 0.14);
+}
+
+.section--dark .fact {
+  background: var(--steel-900);
+}
+
+.fact__value {
+  font-family: var(--font-display);
+  font-size: var(--step-3);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.fact__label {
+  margin-block-start: var(--space-2xs);
+  font-size: var(--step--1);
+  color: var(--text-muted);
+  line-height: 1.45;
+}
+
+.section--dark .fact__label {
+  color: var(--text-inverse-muted);
+}
+
+/* --- Sidfot ---------------------------------------------------------------- */
+
+.site-footer {
+  background: var(--steel-900);
+  color: var(--text-inverse-muted);
+  padding-block: var(--space-2xl) var(--space-l);
+  font-size: var(--step--1);
+}
+
+.site-footer__grid {
+  display: grid;
+  gap: var(--space-xl);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+}
+
+.site-footer h3 {
+  font-size: 0.78rem;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #fff;
+  margin-block-end: var(--space-s);
+}
+
+.site-footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.site-footer a {
+  text-decoration: none;
+  color: var(--text-inverse-muted);
+  transition: color var(--dur) var(--ease);
+}
+
+.site-footer a:hover {
+  color: #fff;
+}
+
+.site-footer__logo img {
+  width: 6.5rem;
+  margin-block-end: var(--space-s);
+}
+
+.site-footer__bottom {
+  margin-block-start: var(--space-2xl);
+  padding-block-start: var(--space-m);
+  border-top: 1px solid rgb(255 255 255 / 0.12);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-s) var(--space-m);
+  justify-content: space-between;
+  font-size: 0.8rem;
+}
+
+/* --- Brödsmulor ------------------------------------------------------------ */
+
+.breadcrumbs {
+  padding-block: var(--space-m);
+  font-size: var(--step--1);
+  color: var(--text-muted);
+}
+
+.breadcrumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.breadcrumbs li + li::before {
+  content: '/';
+  margin-inline-end: 0.5rem;
+  color: var(--border-strong);
+}
+
+.breadcrumbs a {
+  text-decoration: none;
+}
+
+.breadcrumbs a:hover {
+  text-decoration: underline;
+}
+
+/* --- Sidhero (inre sidor) --------------------------------------------------- */
+
+.page-hero {
+  background: var(--steel-900);
+  color: var(--text-inverse);
+  padding-block: var(--space-2xl) var(--space-2xl);
+}
+
+/* .container centrerar sig själv. En max-width här skulle centrera hela
+   textblocket i sidan; begränsa radlängden på barnen i stället så att
+   rubriken linjerar med innehållet nedanför. */
+.page-hero__inner > * {
+  max-width: 48rem;
+}
+
+.page-hero h1 {
+  font-size: var(--step-4);
+  margin-block: var(--space-s);
+}
+
+.page-hero .lead {
+  color: var(--text-inverse-muted);
+}
+
+/* --- Notisruta -------------------------------------------------------------- */
+
+.note {
+  border-inline-start: 3px solid var(--nab-blue);
+  background: var(--nab-blue-050);
+  padding: var(--space-s) var(--space-m);
+  border-radius: 0 var(--radius-m) var(--radius-m) 0;
+  font-size: var(--step--1);
+  color: var(--text);
+}

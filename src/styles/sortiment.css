@@ -1,0 +1,207 @@
+/* ==========================================================================
+   Sortimentshubb
+   ========================================================================== */
+
+.sortiment-layout {
+  display: grid;
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+@media (min-width: 60rem) {
+  .sortiment-layout {
+    grid-template-columns: 16rem 1fr;
+    gap: var(--space-2xl);
+  }
+}
+
+/* --- Filter ----------------------------------------------------------------- */
+
+.filter {
+  position: sticky;
+  top: 6rem;
+}
+
+.filter__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-s);
+  padding-block-end: var(--space-s);
+  border-bottom: 2px solid var(--steel-900);
+}
+
+.filter__head h2 {
+  font-size: var(--step-1);
+}
+
+.filter__reset {
+  background: none;
+  border: 0;
+  padding: 0.25rem;
+  font-size: var(--step--1);
+  font-weight: 600;
+  color: var(--nab-blue-700);
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.filter__grupp {
+  border: 0;
+  border-bottom: 1px solid var(--border);
+  padding: var(--space-m) 0;
+  margin: 0;
+}
+
+.filter__grupp legend {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding: 0;
+  margin-block-end: var(--space-2xs);
+}
+
+.kryss {
+  display: grid;
+  grid-template-columns: 1.1rem 1fr auto;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.35rem 0;
+  font-size: var(--step--1);
+  cursor: pointer;
+}
+
+.kryss input {
+  width: 1.1rem;
+  height: 1.1rem;
+  accent-color: var(--nab-blue);
+  cursor: pointer;
+}
+
+.kryss__antal {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.kryss--tom {
+  opacity: 0.42;
+}
+
+/* --- Resultat ---------------------------------------------------------------- */
+
+.resultat-rad {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding-block-end: var(--space-m);
+  border-bottom: 1px solid var(--border);
+  margin-block-end: var(--space-m);
+}
+
+.modell-kort .card__media {
+  aspect-ratio: 4 / 3;
+}
+
+/* Genererad ritning där vi saknar foto på just den modellen. */
+.ritning {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  padding: var(--space-2xs);
+  background: linear-gradient(170deg, #eef2f5, #dfe6eb);
+  color: #7f929f;
+}
+
+.ritning svg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.modell-kort .card__title {
+  font-family: var(--font-mono);
+  font-size: var(--step-0);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+.spec-chips {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-2xs) 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.spec-chips li {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.03em;
+  padding: 0.2rem 0.5rem;
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-s);
+  color: var(--text-muted);
+}
+
+.tomt {
+  padding: var(--space-xl);
+  background: var(--surface-alt);
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius-l);
+  text-align: center;
+  color: var(--text-muted);
+}
+
+/* --- Benämningsnyckel --------------------------------------------------------- */
+
+.benamning__exempel {
+  font-size: var(--step-3);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  padding-block-end: var(--space-m);
+  border-bottom: 2px solid var(--steel-900);
+  margin-block-end: var(--space-m);
+}
+
+.benamning__lista {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 48rem) {
+  .benamning__lista {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: var(--space-2xl);
+  }
+}
+
+.benamning__lista > div {
+  display: grid;
+  grid-template-columns: 5rem 1fr;
+  gap: var(--space-s);
+  padding-block: 0.7rem;
+  border-bottom: 1px solid var(--border);
+  font-size: var(--step--1);
+}
+
+.benamning__lista dt {
+  font-weight: 500;
+  color: var(--nab-blue-700);
+}
+
+.benamning__lista dd {
+  margin: 0;
+  color: var(--text-muted);
+}

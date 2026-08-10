@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sortiment – Norrmontage AB</title>
+    <meta
+      name="description"
+      content="Marknadens bredaste sortiment av nätstationer i plåt. Filtrera på spänning, effekt, antal högspänningsfack och apparattyp."
+    />
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="icon" href="img/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Hoppa till innehåll</a>
+    <header class="site-header"></header>
+
+    <main id="main">
+      <section class="page-hero">
+        <div class="container page-hero__inner">
+          <p class="eyebrow">Sortiment</p>
+          <h1>Marknadens bredaste sortiment av nätstationer i plåt</h1>
+          <p class="lead">
+            Fem familjer, från satellitstationer på 50 kVA till ZT19 med 2×1600 kVA och tio
+            mellanspänningsfack. Filtrera fram den som passar ert behov.
+          </p>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container sortiment-layout">
+          <aside class="filter" aria-label="Filtrera sortimentet">
+            <div class="filter__head">
+              <h2>Filter</h2>
+              <button class="filter__reset" type="button" id="rensa">Rensa</button>
+            </div>
+            <div id="filter-grupper"></div>
+          </aside>
+
+          <div class="sortiment-resultat">
+            <p class="resultat-rad" id="resultat-rad" role="status" aria-live="polite"></p>
+            <div class="grid grid--3" id="modell-lista"></div>
+            <p class="tomt" id="tomt" hidden>
+              Inga stationer matchar filtret. Vi har mängder av specialstationer utöver sortimentet.
+              <a href="kontakt.html">Hör av er så hjälper vi till</a>.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--alt">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">Benämningar</p>
+            <h2>Så läser du artikelnamnet</h2>
+            <p class="lead">
+              Modellbeteckningen beskriver stationen i klartext, om man vet vad delarna betyder.
+            </p>
+          </div>
+          <div class="benamning" id="benamning"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer"></footer>
+    <script type="module" src="/src/main.js"></script>
+    <script type="module" src="/src/js/sortiment.js"></script>
+  </body>
+</html>

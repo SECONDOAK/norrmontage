@@ -1,0 +1,543 @@
+{
+  "_kalla": "Modellnamn, kategoristruktur, beskrivningar och utrustningsalternativ är hämtade från shop.norrmontage.se (augusti 2026). Mått, vikter och bilder per modell behöver kompletteras av Norrmontage.",
+  "kategorier": [
+    {
+      "id": "satellit",
+      "namn": "Satellit & seriesatellitstationer",
+      "kort": "Satellit",
+      "familj": "ZS · ZS18 · ZN22-SS2",
+      "ebr": "EBR S2, S5, S8 och SS2",
+      "effekt": "50–2000 kVA",
+      "bild": "img/kort/ss2-fjallvy.jpg",
+      "ingress": "Kompakta och driftsäkra stationer i utföranden från 50 kVA upp till 2000 kVA.",
+      "beskrivning": "Sortimentet innehåller typerna ZS, ZS18 och ZN22. ZS är satellitstationer för max 200 kVA respektive max 500 kVA där det inte finns något högspänningsställverk, utan transformatorn säkras i stolpe eller i matande station. ZS18 kan fås upp till 2 MVA eller 2×1600 kVA transformatorer. ZN22 är den modernaste familjen, där seriesatellitstationerna ingår; dessa kan bestyckas upp till och med 200 kVA. Högspänningsfacken kan fås med demonterbara skruvlaskar eller rörlaskar i linjefacken, samt säkringshållare alternativt frånskiljare för trafofacket.",
+      "spanningar": [
+        "12 kV",
+        "24 kV"
+      ]
+    },
+    {
+      "id": "natstation-315",
+      "namn": "Nätstationer 50–315 kVA",
+      "kort": "ZN22",
+      "familj": "ZN22 (N3)",
+      "ebr": "EBR N3",
+      "effekt": "50–315 kVA",
+      "bild": "img/kort/zn22-24-3-315.jpg",
+      "ingress": "ZN22-familjen ger en optimal balans av smarta lösningar, goda arbetsutrymmen och en säker arbetsmiljö.",
+      "beskrivning": "Nätstationer för max 315 kVA transformator utgörs av ZN22-familjen som finns i 8 varianter. Det är en flexibel, väl beprövad nätstation med tusentals installerade enheter. Nätstationen har förbättrats över åren och är sedan 2018 inne på generation 6.",
+      "spanningar": [
+        "12 kV",
+        "24 kV",
+        "RMU"
+      ]
+    },
+    {
+      "id": "natstation-2000",
+      "namn": "Nätstationer 500–2000 kVA",
+      "kort": "ZT19",
+      "familj": "ZT19",
+      "ebr": "EBR N8, N12 och större",
+      "effekt": "500–2000 kVA",
+      "bild": "img/kort/zt19-vinter.jpg",
+      "ingress": "Arbetshästen ZT19 har levererats sedan 80-talet med kontinuerliga förbättringar. Varför ändra på ett vinnande koncept?",
+      "beskrivning": "ZT19 är den nätstation på marknaden som har mest utrymme för montören samt en personsäker lösning för manövrering. Serien finns i många olika konfigurationer upp till 36 kV och 10 mellanspänningsfack. Stationen kan fås med ett inomhusbetjänat manöverutrymme för styrelektronik. ZT19 kan levereras med max 2×1600 kVA eller 1×2000 kVA transformator och är utrustad med forcerad kylning från och med 1250 kVA.",
+      "spanningar": [
+        "12 kV",
+        "24 kV",
+        "RMU"
+      ]
+    },
+    {
+      "id": "kopplingsstation",
+      "namn": "Kopplingsstationer",
+      "kort": "ZF19",
+      "familj": "ZF19",
+      "ebr": "–",
+      "effekt": "2–10 HSP-fack",
+      "bild": "img/kort/zt19-v3-1-gra.jpg",
+      "ingress": "För fördelning av högspänningslinjer, utan eget transformatorutrymme.",
+      "beskrivning": "Denna stationstyp används för fördelning av högspänningslinjer och är därför endast bestyckad med HSP-ställverk samt eventuell övervakning. Stationen finns i storlekarna 2–10 HSP-fack och kan utrustas med separat utrymme för fjärrstyrningsutrustning. Den kan också användas som brytarstation och utrustas med kommunicerande riktade skydd samt effektbrytare som begränsar ett uppkommet fel till ett förutbestämt område. Stationen är självförsörjande vad gäller kraft för egen funktion.",
+      "spanningar": [
+        "12 kV",
+        "24 kV",
+        "RMU"
+      ]
+    },
+    {
+      "id": "teknikhus",
+      "namn": "Teknikhus",
+      "kort": "Teknikhus",
+      "familj": "Kundanpassat",
+      "ebr": "–",
+      "effekt": "Fritt mått",
+      "bild": "img/kort/zt19-rockpanel.jpg",
+      "ingress": "Kundanpassade isolerade hus för många ändamål, med största fokus på kvalité.",
+      "beskrivning": "Norrmontage bygger kundanpassade isolerade hus för många ändamål: batterilager, teknikutrymmen, styrelektronik och fjärrstyrning. Varje hus specificeras tillsammans med er. För en offert, kontakta oss med era önskemål.",
+      "spanningar": []
+    }
+  ],
+  "modeller": [
+    {
+      "id": "zn22-24-3-315",
+      "namn": "ZN22-24/3-315",
+      "kategori": "natstation-315",
+      "kv": 24,
+      "fack": 3,
+      "kva": 315,
+      "trafo": 1,
+      "apparat": "Luftisolerad",
+      "bild": "img/kort/zn22-24-3-315.jpg",
+      "ingress": "Nätstation i plåt för luftisolerade apparater och max 315 kVA.",
+      "beskrivning": "Stationen manövreras från ett separat manöverfack i anslutning till lågspänningsfacket för samtliga högspänningsfack. Detta ger högsta personsäkerhet då manövern sker så långt bort från apparaten som möjligt.",
+      "matt": {
+        "bredd": 2310,
+        "hojd": 1070,
+        "trafofack": 1105
+      },
+      "dokument": [
+        {
+          "namn": "OF-45716a ZN22-24-3-315",
+          "typ": "Fundamentsritning"
+        },
+        {
+          "namn": "OF-45716Sa ZN22-24-3-315",
+          "typ": "Fundamentsritning, sadeltak"
+        },
+        {
+          "namn": "OL-45716b ZN22-24-3-315",
+          "typ": "Layoutritning"
+        }
+      ]
+    },
+    {
+      "id": "zn22-24-4-315f",
+      "namn": "ZN22-24/4-315F",
+      "kategori": "natstation-315",
+      "kv": 24,
+      "fack": 4,
+      "kva": 315,
+      "trafo": 1,
+      "apparat": "Luftisolerad",
+      "ingress": "Fyrfacksutförande för max 315 kVA transformator.",
+      "ritning": {
+        "tak": "s20",
+        "panel": "plat",
+        "kulor": "#5c6157"
+      }
+    },
+    {
+      "id": "zn22-24-4-2-315",
+      "namn": "ZN22-24/4-2-315",
+      "kategori": "natstation-315",
+      "kv": 24,
+      "fack": 4,
+      "kva": 315,
+      "trafo": 1,
+      "apparat": "Luftisolerad",
+      "ingress": "Fyrfacksvariant ur ZN22-familjens generation 6.",
+      "ritning": {
+        "tak": "s20",
+        "panel": "plat",
+        "kulor": "#6b3a34"
+      }
+    },
+    {
+      "id": "zn22-24-6-315",
+      "namn": "ZN22-24/6-315",
+      "kategori": "natstation-315",
+      "kv": 24,
+      "fack": 6,
+      "kva": 315,
+      "trafo": 1,
+      "apparat": "Luftisolerad",
+      "ingress": "Sexfacksutförande med fullt manöverfack.",
+      "ritning": {
+        "tak": "s20",
+        "panel": "tra-liggande",
+        "kulor": "#1b1b1b"
+      }
+    },
+    {
+      "id": "zn22-24-6-2-315",
+      "namn": "ZN22-24/6-2-315",
+      "kategori": "natstation-315",
+      "kv": 24,
+      "fack": 6,
+      "kva": 315,
+      "trafo": 1,
+      "apparat": "Luftisolerad",
+      "ingress": "Sexfacksvariant ur ZN22-familjens generation 6.",
+      "ritning": {
+        "tak": "s20",
+        "panel": "plat",
+        "kulor": "#6e6e6e"
+      }
+    },
+    {
+      "id": "zn22-12-3-315f",
+      "namn": "ZN22-12/3-315F",
+      "kategori": "natstation-315",
+      "kv": 12,
+      "fack": 3,
+      "kva": 315,
+      "trafo": 1,
+      "apparat": "Luftisolerad",
+      "ingress": "Trefacksstation för 12 kV och max 315 kVA.",
+      "ritning": {
+        "tak": "s20",
+        "panel": "rockpanel",
+        "kulor": "#5c6157"
+      }
+    },
+    {
+      "id": "zn22-12-4-315f",
+      "namn": "ZN22-12/4-315F",
+      "kategori": "natstation-315",
+      "kv": 12,
+      "fack": 4,
+      "kva": 315,
+      "trafo": 1,
+      "apparat": "Luftisolerad",
+      "ingress": "Fyrfacksstation för 12 kV och max 315 kVA.",
+      "ritning": {
+        "tak": "s20",
+        "panel": "plat",
+        "kulor": "#6b3a34"
+      }
+    },
+    {
+      "id": "z31-n34-rmu",
+      "namn": "Z31-N34-RMU",
+      "kategori": "natstation-315",
+      "kv": 24,
+      "fack": 3,
+      "kva": 315,
+      "trafo": 1,
+      "apparat": "RMU",
+      "ingress": "RMU-station med kompaktställverk istället för luftisolerade apparater.",
+      "ritning": {
+        "tak": "s20",
+        "panel": "plat",
+        "kulor": "#1b1b1b"
+      }
+    },
+    {
+      "id": "z31-n36-rmu",
+      "namn": "Z31-N36-RMU",
+      "kategori": "natstation-315",
+      "kv": 24,
+      "fack": 3,
+      "kva": 315,
+      "trafo": 1,
+      "apparat": "RMU",
+      "ingress": "RMU-station i ZN22-storlek.",
+      "ritning": {
+        "tak": "s20",
+        "panel": "tra-liggande",
+        "kulor": "#6e6e6e"
+      }
+    },
+    {
+      "id": "z31-n2x36-rmu",
+      "namn": "Z31-N2x36-RMU",
+      "kategori": "natstation-315",
+      "kv": 24,
+      "fack": 6,
+      "kva": 315,
+      "trafo": 1,
+      "apparat": "RMU",
+      "ingress": "RMU-station med dubbla kompaktställverk.",
+      "ritning": {
+        "tak": "s20",
+        "panel": "plat",
+        "kulor": "#5c6157"
+      }
+    },
+    {
+      "id": "zt19-24-4-1",
+      "namn": "ZT19-24/4-1",
+      "kategori": "natstation-2000",
+      "kv": 24,
+      "fack": 4,
+      "kva": 1250,
+      "trafo": 1,
+      "apparat": "Luftisolerad",
+      "ingress": "Fyra HSP-fack och en transformator. Marknadens rymligaste montörsutrymme.",
+      "beskrivning": "ZT19 manövreras personsäkert och har mest utrymme för montören av nätstationerna på marknaden. Stationen kan fås med inomhusbetjänat manöverutrymme för styrelektronik.",
+      "ritning": {
+        "tak": "s7",
+        "panel": "rockpanel",
+        "kulor": "#6b3a34"
+      }
+    },
+    {
+      "id": "zt19-24-4-1-rls",
+      "namn": "ZT19-24/4-1-RLS",
+      "kategori": "natstation-2000",
+      "kv": 24,
+      "fack": 4,
+      "kva": 1250,
+      "trafo": 1,
+      "apparat": "Luftisolerad",
+      "rls": true,
+      "bild": "img/kort/zt19-ribbpanel.jpg",
+      "ingress": "Som ZT19-24/4-1, med inomhusbetjänat utrymme för styrelektronik."
+    },
+    {
+      "id": "zt19-24-6-1",
+      "namn": "ZT19-24/6-1",
+      "kategori": "natstation-2000",
+      "kv": 24,
+      "fack": 6,
+      "kva": 1600,
+      "trafo": 1,
+      "apparat": "Luftisolerad",
+      "bild": "img/kort/zt19-vinter.jpg",
+      "ingress": "Sex HSP-fack och en transformator upp till 1600 kVA."
+    },
+    {
+      "id": "zt19-v3-1",
+      "namn": "ZT19-V3-1",
+      "kategori": "natstation-2000",
+      "kv": 24,
+      "fack": 3,
+      "kva": 1250,
+      "trafo": 1,
+      "apparat": "Luftisolerad",
+      "tak": "Valmat",
+      "bild": "img/kort/zt19-v3-1-gra.jpg",
+      "ingress": "Tre luftisolerade HSP-fack och transformator upp till 1250 kVA, med valmat tak."
+    },
+    {
+      "id": "zf19-24-4e",
+      "namn": "ZF19-24/4E",
+      "kategori": "kopplingsstation",
+      "kv": 24,
+      "fack": 4,
+      "kva": null,
+      "trafo": 0,
+      "apparat": "Luftisolerad",
+      "ingress": "Kopplingsstation med fyra HSP-fack, utan eget transformatorutrymme.",
+      "ritning": {
+        "tak": "s5",
+        "panel": "plat",
+        "kulor": "#1b1b1b"
+      }
+    },
+    {
+      "id": "zf19-24-4e-rls",
+      "namn": "ZF19-24/4E-RLS",
+      "kategori": "kopplingsstation",
+      "kv": 24,
+      "fack": 4,
+      "kva": null,
+      "trafo": 0,
+      "apparat": "Luftisolerad",
+      "rls": true,
+      "ingress": "Fyra HSP-fack med separat utrymme för fjärrstyrningsutrustning.",
+      "ritning": {
+        "tak": "s5",
+        "panel": "plat",
+        "kulor": "#6e6e6e"
+      }
+    },
+    {
+      "id": "zf19-24-6e-rls",
+      "namn": "ZF19-24/6E-RLS",
+      "kategori": "kopplingsstation",
+      "kv": 24,
+      "fack": 6,
+      "kva": null,
+      "trafo": 0,
+      "apparat": "Luftisolerad",
+      "rls": true,
+      "ingress": "Sex HSP-fack med utrymme för fjärrstyrningsutrustning.",
+      "ritning": {
+        "tak": "s5",
+        "panel": "tra-liggande",
+        "kulor": "#5c6157"
+      }
+    },
+    {
+      "id": "zf19-24-8e-rls-b",
+      "namn": "ZF19-24/8E-RLS-B",
+      "kategori": "kopplingsstation",
+      "kv": 24,
+      "fack": 8,
+      "kva": null,
+      "trafo": 0,
+      "apparat": "Luftisolerad",
+      "rls": true,
+      "bild": "img/kort/zt19-rockpanel.jpg",
+      "ingress": "Åtta HSP-fack, förberedd som brytarstation med riktade skydd."
+    },
+    {
+      "id": "zn22-ss2-24fs",
+      "namn": "ZN22-SS2-24fs",
+      "kategori": "satellit",
+      "kv": 24,
+      "fack": 2,
+      "kva": 200,
+      "trafo": 1,
+      "apparat": "Luftisolerad",
+      "bild": "img/kort/ss2-falurod.jpg",
+      "ingress": "Seriesatellitstation ur ZN22-familjen, bestyckad upp till 200 kVA.",
+      "beskrivning": "Högspänningsfacken kan fås med demonterbara skruvlaskar eller rörlaskar i linjefacken, samt säkringshållare alternativt frånskiljare för trafofacket."
+    },
+    {
+      "id": "zs24-200-s2-nsl",
+      "namn": "ZS24-200 S2 NSL",
+      "kategori": "satellit",
+      "kv": 24,
+      "fack": 0,
+      "kva": 200,
+      "trafo": 1,
+      "apparat": "Utan HSP-ställverk",
+      "bild": "img/kort/ss2-fjallvy.jpg",
+      "ingress": "Satellitstation för max 200 kVA. Transformatorn säkras i stolpe eller matande station."
+    },
+    {
+      "id": "zs24-500",
+      "namn": "ZS24-500",
+      "kategori": "satellit",
+      "kv": 24,
+      "fack": 0,
+      "kva": 500,
+      "trafo": 1,
+      "apparat": "Utan HSP-ställverk",
+      "bild": "img/kort/ss2-panel.jpg",
+      "ingress": "Satellitstation för max 500 kVA utan eget högspänningsställverk."
+    },
+    {
+      "id": "zs18-24-0",
+      "namn": "ZS18-24/0",
+      "kategori": "satellit",
+      "kv": 24,
+      "fack": 0,
+      "kva": 2000,
+      "trafo": 1,
+      "apparat": "Utan HSP-ställverk",
+      "ingress": "Satellitstation som kan fås upp till 2 MVA.",
+      "ritning": {
+        "tak": "s20",
+        "panel": "plat",
+        "kulor": "#6b3a34"
+      }
+    },
+    {
+      "id": "zs18-24-0-2",
+      "namn": "ZS18-24/0-2",
+      "kategori": "satellit",
+      "kv": 24,
+      "fack": 0,
+      "kva": 1600,
+      "trafo": 2,
+      "apparat": "Utan HSP-ställverk",
+      "bild": "img/kort/koppar-valmat.jpg",
+      "ingress": "Satellitstation för två transformatorer, upp till 2×1600 kVA."
+    },
+    {
+      "id": "teknikhus-kundanpassat",
+      "namn": "Teknikhus, kundanpassat",
+      "kategori": "teknikhus",
+      "kv": null,
+      "fack": 0,
+      "kva": null,
+      "trafo": 0,
+      "apparat": "Efter behov",
+      "bild": "img/kort/zt19-trapanel-svart.jpg",
+      "ingress": "Isolerat hus byggt efter era mått och ert ändamål, för batterilager, teknikutrymme eller styrelektronik."
+    }
+  ],
+  "benamning": {
+    "exempel": "ZT19-24/4-1S7T-RLS",
+    "delar": [
+      {
+        "del": "ZT19",
+        "betyder": "Stationsmodell"
+      },
+      {
+        "del": "24",
+        "betyder": "24 kV"
+      },
+      {
+        "del": "/4",
+        "betyder": "4 HSP-fack"
+      },
+      {
+        "del": "-1",
+        "betyder": "En transformator"
+      },
+      {
+        "del": "S",
+        "betyder": "27 graders sadeltak"
+      },
+      {
+        "del": "S7",
+        "betyder": "7 graders sadeltak"
+      },
+      {
+        "del": "T",
+        "betyder": "Träpanel"
+      },
+      {
+        "del": "V",
+        "betyder": "Valmat tak"
+      },
+      {
+        "del": "R",
+        "betyder": "Runt tak"
+      },
+      {
+        "del": "D",
+        "betyder": "Driescher LTDM istället för NAL/NALF"
+      },
+      {
+        "del": "-RLS",
+        "betyder": "Inomhusbetjänat utrymme för styrelektronik, isolerat eller oisolerat"
+      }
+    ]
+  },
+  "utrustning": {
+    "_kalla": "Ordagrant från rubriken Utrustningsalternativ på Norrmontages produktsidor (ZN22-24/3-315). Andra familjer har delvis andra alternativ, verifieras per modell.",
+    "grupper": [
+      {
+        "id": "hus",
+        "namn": "Hus",
+        "ikon": "M4 20h16M6 20V10l6-5 6 5v10",
+        "punkter": [
+          "Sadeltak 5 grader",
+          "Sadeltak 20 grader",
+          "Plåtpanel",
+          "Träpanel",
+          "Sandinblandad eller slät färg av valfri kulör",
+          "Skilda färger på fundament, väggar och tak",
+          "Separat IT-fack",
+          "Filter för ventilation"
+        ]
+      },
+      {
+        "id": "hogspanning",
+        "namn": "Högspänning",
+        "ikon": "M13 3l-6 9h5l-1 9 6-9h-5z",
+        "punkter": [
+          "Lastfrånskiljare och säkringslastfrånskiljare av typ NAL/NALF 12 kV med jordkopplare eller kulbultsjordning",
+          "Lastfrånskiljare och säkringslastfrånskiljare av typ LDTM FE/SEA 12 kV med jordningskopplare eller kulbultsjordning",
+          "Stumkoppling med antingen lask eller rörlask",
+          "Motormanöver för lastfrånskiljare samt jordkopplare kan installeras för samtliga fack"
+        ]
+      },
+      {
+        "id": "lagspanning",
+        "namn": "Lågspänning",
+        "ikon": "M4 8h13a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2H4zM21 11v2",
+        "punkter": [
+          "ABB kabeldon, normal skenlängd 795 mm, max 630 ampere. Anpassad för de nya SLDL-apparaterna",
+          "ABB CEWE, normal skenlängd 795 mm, 630 ampere",
+          "Goda utrymmen för mät- och kontrollutrustning"
+        ]
+      }
+    ]
+  }
+}

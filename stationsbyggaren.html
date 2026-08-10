@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stationsbyggaren – Norrmontage AB</title>
+    <meta
+      name="description"
+      content="Utforska Norrmontages nätstationer: stationstyp, taklutning, fasad, kulör och innehåll. Stationen ritas om direkt vid varje val."
+    />
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="icon" href="img/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Hoppa till innehåll</a>
+    <header class="site-header"></header>
+
+    <main id="main">
+      <section class="byggare-hero">
+        <div class="container">
+          <p class="eyebrow">Stationsbyggaren</p>
+          <h1>Bygg din station</h1>
+          <p class="lead">
+            Alla alternativ nedan finns i vårt sortiment. Ändra fritt och se stationen ritas om.
+            Det här är ett sätt att utforska bredden, inte en beställning.
+          </p>
+        </div>
+      </section>
+
+      <section class="byggare">
+        <div class="container byggare__grid">
+          <!-- Val -->
+          <div class="byggare__val">
+            <ol class="steg" id="steg"></ol>
+          </div>
+
+          <!-- Visning -->
+          <div class="byggare__vy">
+            <div class="vy">
+              <div class="vy__scen" id="scen"></div>
+              <p class="vy__alt visually-hidden" id="vy-alt" role="status" aria-live="polite"></p>
+            </div>
+
+            <div class="spec">
+              <div class="spec__head">
+                <h2>Din specifikation</h2>
+                <p class="spec__narmast mono" id="narmast"></p>
+              </div>
+              <dl class="spec__lista" id="spec-lista"></dl>
+              <p class="spec__not">
+                Levereras enligt ordererkännande. Andra kulörer och utföranden kan fås mot
+                förfrågan.
+              </p>
+              <a class="btn btn--primary spec__vidare" href="#saljare">
+                Få rådgivning om den här stationen
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6" /></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Nästa steg: ta den byggda stationen vidare till rådgivning -->
+      <section class="saljare section section--dark" id="saljare">
+        <div class="container">
+          <div class="section-head saljare__head">
+            <p class="eyebrow">Nästa steg</p>
+            <h2>Från skiss till färdig station</h2>
+            <p class="lead">
+              Skicka in din konfiguration så återkommer vi med rådgivning: vad som går att bygga,
+              vad vi rekommenderar för er plats och vad som behövs för att komma vidare. Ingen
+              beställning, bara ett samtal.
+            </p>
+          </div>
+
+          <div class="saljare__grid">
+            <div class="saljare__spec">
+              <p class="saljare__spec-rubrik mono" id="form-narmast"></p>
+              <dl class="saljare__spec-lista" id="form-spec"></dl>
+            </div>
+
+            <form class="saljar-form" id="saljar-form" novalidate>
+              <div class="falt-rad">
+                <div class="falt">
+                  <label for="f-namn">Namn *</label>
+                  <input id="f-namn" name="namn" type="text" autocomplete="name" required />
+                </div>
+                <div class="falt">
+                  <label for="f-foretag">Företag</label>
+                  <input id="f-foretag" name="foretag" type="text" autocomplete="organization" />
+                </div>
+              </div>
+              <div class="falt-rad">
+                <div class="falt">
+                  <label for="f-epost">E-post *</label>
+                  <input id="f-epost" name="epost" type="email" autocomplete="email" required />
+                </div>
+                <div class="falt">
+                  <label for="f-telefon">Telefon</label>
+                  <input id="f-telefon" name="telefon" type="tel" autocomplete="tel" />
+                </div>
+              </div>
+              <div class="falt">
+                <label for="f-medd">Meddelande</label>
+                <textarea id="f-medd" name="meddelande" rows="4"
+                  placeholder="Berätta gärna om projektet: plats, tidplan, särskilda krav."></textarea>
+              </div>
+              <p class="falt-fel" id="form-fel" hidden>Fyll i namn och en giltig e-postadress.</p>
+              <div class="btn-row">
+                <button class="btn btn--primary" type="submit">
+                  Skicka in och få rådgivning
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+                </button>
+              </div>
+            </form>
+
+            <div class="saljar-kvitto" id="saljar-kvitto" role="status" hidden>
+              <span class="saljar-kvitto__ikon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                     stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5" /></svg>
+              </span>
+              <h3>Tack! Vi har fått din konfiguration.</h3>
+              <p>
+                Vi hör av oss inom kort till <strong id="kvitto-epost"></strong> med rådgivning
+                kring <span class="mono" id="kvitto-modell"></span>.
+              </p>
+              <p class="saljar-kvitto__not">Prototyp. Ingenting skickades på riktigt.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer"></footer>
+    <script type="module" src="/src/main.js"></script>
+    <script type="module" src="/src/js/configurator/ui.js"></script>
+  </body>
+</html>

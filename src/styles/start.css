@@ -1,0 +1,316 @@
+/* ==========================================================================
+   Startsida
+   ========================================================================== */
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: flex-end;
+  /* Höjden följer innehållet snarare än tvärtom — annars hamnar texten
+     svävande mitt i bilden i stället för att stå stadigt i underkant. */
+  min-height: min(38rem, 72svh);
+  /* Tyngdpunkten ligger i underkant: mycket luft över texten, lite under, så
+     att blocket står på hero-kanten i stället för att sväva mitt i bilden. */
+  padding-block: var(--space-4xl) var(--space-xl);
+  background: var(--steel-900);
+  color: var(--text-inverse);
+  overflow: hidden;
+}
+
+.hero__media {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.hero__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Håller stationen och montörerna i bild när det breda formatet beskär. */
+  object-position: center 56%;
+}
+
+/* Fabriksbilden är ljus, med vita väggar och blank plåt. Överlagringen är
+   satt så att även de ljusaste partierna bakom texten klarar AA mot vit text. */
+.hero__media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to top, rgb(14 26 36 / 0.95) 0%, rgb(14 26 36 / 0.82) 42%, rgb(14 26 36 / 0.42) 74%, rgb(14 26 36 / 0.55) 100%),
+    linear-gradient(to right, rgb(14 26 36 / 0.85) 0%, rgb(14 26 36 / 0.5) 42%, transparent 74%);
+}
+
+/* .container centrerar sig själv. Att sätta max-width här skulle centrera hela
+   textblocket i sidan — i stället behåller vi containerns bredd och begränsar
+   radlängden på barnen, så hero-texten står i linje med rubrikerna nedanför. */
+.hero__inner > * {
+  max-width: 42rem;
+}
+
+.hero__inner > * + * {
+  margin-block-start: var(--space-s);
+}
+
+.hero .eyebrow {
+  color: #fff;
+  text-shadow: 0 1px 8px rgb(14 26 36 / 0.85);
+}
+
+.hero .eyebrow::before {
+  background: #fff;
+}
+
+.hero h1 {
+  margin-block-start: var(--space-s);
+}
+
+.hero .lead {
+  color: #dce6ed;
+  max-width: 34rem;
+}
+
+.hero .btn-row {
+  margin-block-start: var(--space-m);
+}
+
+.hero-facts {
+  padding-block: var(--space-xl);
+}
+
+/* --- Kategorikort ---------------------------------------------------------- */
+
+/* Fem kategorier: 3 + 2 på bred skärm, där sista raden fyller ut jämnt. */
+.kat-grid {
+  display: grid;
+  gap: var(--space-m);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 42rem) {
+  .kat-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+  .kat-grid > * {
+    grid-column: span 3;
+  }
+}
+
+@media (min-width: 62rem) {
+  .kat-grid > * {
+    grid-column: span 2;
+  }
+  .kat-grid > *:nth-last-child(-n + 2) {
+    grid-column: span 3;
+  }
+}
+
+.kat-kort .card__media {
+  aspect-ratio: 3 / 2;
+}
+
+.kat-kort__spec {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  margin-block-start: var(--space-2xs);
+}
+
+.kat-kort__spec span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.kat-kort__spec span + span::before {
+  content: '';
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--border-strong);
+  margin-inline-end: 0.4rem;
+}
+
+/* --- Stationsbyggar-teaser -------------------------------------------------- */
+
+.byggare-teaser__grid {
+  display: grid;
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+@media (min-width: 60rem) {
+  .byggare-teaser__grid {
+    grid-template-columns: 1fr 1.15fr;
+    gap: var(--space-2xl);
+  }
+}
+
+.byggare-teaser__text > * + * {
+  margin-block-start: var(--space-m);
+}
+
+.byggare-teaser__preview {
+  background: linear-gradient(180deg, #16242f, #0b141c);
+  border: 1px solid rgb(255 255 255 / 0.12);
+  border-radius: var(--radius-l);
+  padding: var(--space-m);
+  box-shadow: var(--shadow-l);
+}
+
+.byggare-teaser__preview svg {
+  width: 100%;
+  height: auto;
+}
+
+.tick-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.6rem;
+  font-size: var(--step--1);
+  color: var(--text-inverse-muted);
+}
+
+.tick-list li {
+  display: grid;
+  grid-template-columns: 1.15rem 1fr;
+  gap: 0.7rem;
+  align-items: start;
+}
+
+.tick-list li::before {
+  content: '';
+  width: 1.15rem;
+  height: 1.15rem;
+  margin-block-start: 0.2rem;
+  border-radius: 50%;
+  background: var(--nab-blue) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E")
+    center / 0.7rem no-repeat;
+}
+
+/* --- Segment ---------------------------------------------------------------- */
+
+.segment-grid {
+  gap: var(--space-s);
+}
+
+/* Fem segment — en jämn rad så fort det får plats. */
+@media (min-width: 68rem) {
+  .segment-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+.segment {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+  padding: var(--space-m);
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-l);
+}
+
+.segment__icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: grid;
+  place-items: center;
+  border-radius: var(--radius-m);
+  background: var(--nab-blue-050);
+  color: var(--nab-blue-700);
+  margin-block-end: var(--space-2xs);
+}
+
+.segment__icon svg {
+  width: 1.35rem;
+  height: 1.35rem;
+}
+
+.segment h3 {
+  font-size: var(--step-1);
+}
+
+.segment p {
+  font-size: var(--step--1);
+  color: var(--text-muted);
+}
+
+/* --- Varför ----------------------------------------------------------------- */
+
+.usp {
+  padding: var(--space-m) 0 0;
+  border-top: 2px solid var(--steel-900);
+}
+
+.usp h3 {
+  font-size: var(--step-1);
+  margin-block-end: var(--space-2xs);
+}
+
+.usp p {
+  color: var(--text-muted);
+  font-size: var(--step--1);
+  max-width: 32rem;
+}
+
+/* --- Kontaktblock ----------------------------------------------------------- */
+
+.kontakt-cta {
+  display: grid;
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+@media (min-width: 60rem) {
+  .kontakt-cta {
+    grid-template-columns: 1.3fr 1fr;
+    gap: var(--space-3xl);
+    /* Faktalistans understa linje möter knapparnas underkant. */
+    align-items: end;
+  }
+}
+
+.kontakt-cta > div > * + * {
+  margin-block-start: var(--space-m);
+}
+
+.kontakt-fakta {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  border-top: 1px solid rgb(255 255 255 / 0.16);
+}
+
+.kontakt-fakta > div {
+  display: grid;
+  grid-template-columns: 8rem 1fr;
+  gap: var(--space-s);
+  padding-block: var(--space-s);
+  border-bottom: 1px solid rgb(255 255 255 / 0.16);
+}
+
+.kontakt-fakta dt {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-inverse-muted);
+}
+
+.kontakt-fakta dd {
+  margin: 0;
+  color: #fff;
+}
+
+.kontakt-fakta a {
+  color: #fff;
+}

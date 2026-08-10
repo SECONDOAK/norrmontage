@@ -1,0 +1,100 @@
+/* ==========================================================================
+   Om Norrmontage
+   ========================================================================== */
+
+.om-grid {
+  display: grid;
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+@media (min-width: 60rem) {
+  .om-grid {
+    grid-template-columns: 1.6fr 1fr;
+    gap: var(--space-3xl);
+  }
+}
+
+.om-text > * + * {
+  margin-block-start: var(--space-s);
+}
+
+.om-text h2 {
+  font-size: var(--step-2);
+  margin-block-start: var(--space-xl);
+}
+
+.om-text h2:first-child {
+  margin-block-start: 0;
+}
+
+.om-text p {
+  color: var(--text-muted);
+  max-width: 38rem;
+}
+
+.om-fakta {
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-l);
+  padding: var(--space-m);
+  position: sticky;
+  top: 6rem;
+}
+
+.om-fakta h2 {
+  font-size: 0.78rem;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-block-end: var(--space-s);
+}
+
+.om-fakta dl {
+  margin: 0;
+  display: grid;
+}
+
+.om-fakta dl > div {
+  display: grid;
+  gap: 0.1rem;
+  padding-block: 0.6rem;
+  border-bottom: 1px solid var(--border);
+  font-size: var(--step--1);
+}
+
+.om-fakta dt {
+  color: var(--text-muted);
+  font-size: 0.78rem;
+}
+
+.om-fakta dd {
+  margin: 0;
+  font-weight: 550;
+}
+
+.om-fakta .note {
+  margin-block-start: var(--space-m);
+}
+
+.om-bild {
+  margin: 0;
+  border-radius: var(--radius-l);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.om-bild img {
+  width: 100%;
+  aspect-ratio: 21 / 9;
+  object-fit: cover;
+}
+
+.om-bild figcaption {
+  padding: var(--space-s) var(--space-m);
+  font-size: var(--step--1);
+  color: var(--text-muted);
+  background: var(--surface-alt);
+}
