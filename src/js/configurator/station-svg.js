@@ -172,10 +172,16 @@ function mark({ x0, bw }) {
 /* --- Fundament ------------------------------------------------------------------ */
 
 function fundament({ x0, bw, baseY }, fill) {
-  const E = 8
+  const E = 8 /* fundamentet skjuter ut utanför väggliv */
   const L = x0 - E
   const R = x0 + bw + E
   return `
+    <!-- Ovansida: sockelns synliga avsats. Utan den uppstår ett omålat band
+         mellan väggens underkant och fundamentets sidoyta, eftersom sidoytan
+         ligger E pixlar längre ut och därmed lägre i axonometrin.
+         Ritas före väggarna, så bara utsprånget blir synligt. -->
+    <polygon points="${p(L, baseY)} ${p(L + DX, baseY - DY)} ${p(R + DX, baseY - DY)} ${p(R, baseY)}"
+             fill="${shade(fill, 1.14)}" />
     <polygon points="${p(R, baseY)} ${p(R + DX, baseY - DY)} ${p(R + DX, baseY - DY + FUND_H)} ${p(R, baseY + FUND_H)}"
              fill="${shade(fill, 0.68)}" />
     <rect x="${round(L)}" y="${round(baseY)}" width="${round(R - L)}" height="${FUND_H}" fill="${fill}" />
