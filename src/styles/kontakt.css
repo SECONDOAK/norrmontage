@@ -94,6 +94,18 @@
   text-decoration: underline;
 }
 
+/* --- Ärenden ------------------------------------------------------------------- */
+
+/* Full containerbredd så att sektionen linjerar med resten av sidan, men med
+   begränsad radlängd på texten så den inte blir obekvämt lång att läsa. */
+.arenden > p {
+  max-width: 46rem;
+}
+
+.arenden > p + p {
+  margin-block-start: var(--space-s);
+}
+
 /* --- Team --------------------------------------------------------------------- */
 
 .avdelning + .avdelning {
