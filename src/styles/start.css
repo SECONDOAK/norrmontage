@@ -45,6 +45,24 @@
     linear-gradient(to right, rgb(14 26 36 / 0.9) 0%, rgb(14 26 36 / 0.8) 45%, rgb(14 26 36 / 0.35) 65%, transparent 82%);
 }
 
+/* På desktop står texten bara i vänstra tredjedelen. Håll kvar tyngden där
+   och låt överlagringen klinga av betydligt tidigare, så att stationen och
+   fabriken till höger syns nästan orörda. */
+@media (min-width: 64rem) {
+  .hero__media::after {
+    background:
+      linear-gradient(to top, rgb(14 26 36 / 0.55) 0%, rgb(14 26 36 / 0.3) 50%, rgb(14 26 36 / 0.06) 85%, rgb(14 26 36 / 0.12) 100%),
+      linear-gradient(
+        to right,
+        rgb(14 26 36 / 0.9) 0%,
+        rgb(14 26 36 / 0.86) 48%,
+        rgb(14 26 36 / 0.5) 60%,
+        rgb(14 26 36 / 0.12) 68%,
+        transparent 76%
+      );
+  }
+}
+
 /* .container centrerar sig själv. Att sätta max-width här skulle centrera hela
    textblocket i sidan — i stället behåller vi containerns bredd och begränsar
    radlängden på barnen, så hero-texten står i linje med rubrikerna nedanför. */
