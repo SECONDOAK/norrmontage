@@ -155,16 +155,29 @@ function defs(c) {
     </linearGradient>
     <filter id="mjuk" x="-40%" y="-40%" width="180%" height="180%">
       <feGaussianBlur stdDeviation="7" />
+    </filter>
+    <!-- Tightare oskärpa så att skuggan behåller sin rätvinkliga form. -->
+    <filter id="skugga" x="-25%" y="-60%" width="150%" height="220%">
+      <feGaussianBlur stdDeviation="5" />
     </filter>`
 }
 
 /* --- Mark ---------------------------------------------------------------------- */
 
 function mark({ x0, bw }) {
-  const cx = x0 + bw / 2 + DX / 2
+  /* Skuggan följer sockelns fotavtryck i stället för att vara en ellips: samma
+     parallellogram som marken, något utvidgad och förskjuten åt höger eftersom
+     ljuset kommer från vänster. */
+  const E = 14 /* skuggan kryper utanför sockeln */
+  const OX = 20 /* förskjutning i ljusets riktning */
+  const OY = 8
+  const L = x0 - 8 - E + OX
+  const R = x0 + bw + 8 + E + OX
+  const y = GROUND_Y + OY
+
   return `
-    <ellipse cx="${round(cx)}" cy="${GROUND_Y + 12}" rx="${round(bw * 0.66)}" ry="15"
-             fill="rgb(14 26 36 / 0.30)" filter="url(#mjuk)" />
+    <polygon points="${p(L, y)} ${p(L + DX, y - DY)} ${p(R + DX, y - DY)} ${p(R, y)}"
+             fill="rgb(14 26 36 / 0.26)" filter="url(#skugga)" />
     <line x1="60" y1="${GROUND_Y + 14}" x2="${W - 60}" y2="${GROUND_Y + 14}"
           stroke="currentColor" stroke-opacity="0.14" stroke-width="1.2" />`
 }
