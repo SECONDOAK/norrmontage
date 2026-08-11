@@ -246,8 +246,9 @@ function roof({ x0, bw, topY, R }, typ, kulor, vagg) {
     const yta = `M ${p(...FLb)} L ${p(...FRb)} Q ${p(...cR)} ${p(...TR)} L ${p(...TL)} Q ${p(...cL)} ${p(...FLb)} Z`
 
     return `
-      <!-- Gavelbåge (cylinderns ändyta) -->
-      <path d="M ${p(R, eaveY)} Q ${p(R + DX / 2, eaveY - DY / 2 - hArc * 2)} ${p(R + DX, eaveY - DY)} L ${p(R, eaveY)} Z"
+      <!-- Gavelbåge (cylinderns ändyta). Utgår från topY, inte eaveY, så att
+           bågen möter väggen exakt och det inte uppstår en glipa mot gaveln. -->
+      <path d="M ${p(R, topY + 1)} Q ${p(R + DX / 2, topY - DY / 2 - hArc * 2)} ${p(R + DX, topY - DY + 1)} L ${p(R, topY + 1)} Z"
             fill="${shade(kulor, 0.68)}" />
       <!-- Böjd plåtyta -->
       <path d="${yta}" fill="${framLjus}" />
